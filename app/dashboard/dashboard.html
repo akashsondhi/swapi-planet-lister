@@ -1,0 +1,37 @@
+
+<div>
+
+    
+            <nav class="navbar bg-dark navbar-dark">
+                <a class="navbar-brand info-text" href="#">Starboard Enterprise Solutions</a> 
+                <span><span class="login-info info-text">Logged in as {{DashboardCtrl.username}} </span><a class="btn btn-info" href="#/logout">Logout</a></span>
+            </nav>
+      
+    
+    
+    <div class="container">
+        <div class="page-header">
+            <h2 class="main-title">Starboard Planets Database</h2>
+        </div>
+        <div>
+            <input type="text" class="form-control search-box" id="txtSearch" placeholder="Search by Planet Name" ng-model="search.name"
+                   ng-model-options="{debounce: 300}"/></div>
+        <div class="movie-log-data" ng-if="((DashboardCtrl.articles|filter:search:strict).length>0)">
+            <div ng-repeat="article in filteredData = (DashboardCtrl.articles |orderBy:'-size' | filter:search:strict) track by $index">
+                <div ng-style="{ 'font-size': 20 + 3*(filteredData.length - $index)+'px' }">{{article.name}}</div>
+               
+            </div>
+            
+        </div>
+            <div class="container fetching-logs" ng-if="!DashboardCtrl.searchInitiated">Enter a planet name to search</div>
+        
+        <div class="container fetching-logs" ng-if="DashboardCtrl.searchInitiated && !DashboardCtrl.articlesLoaded">Fetching planet names. Please wait...</div>
+        <div class="container no-logs" ng-if="!(DashboardCtrl.articles.length>0) && DashboardCtrl.articlesLoaded">No planets found. </div>
+            <div class="container no-logs" ng-if="(DashboardCtrl.articles.length>0) && ((DashboardCtrl.articles|filter:search:strict).length==0)">
+                No planet found for the searched name. Try changing the name. 
+            </div>
+        </div>
+        
+     
+</div>
+

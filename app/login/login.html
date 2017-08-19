@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="main-title">Planet Explorer</h2>
+        <form class="form-signin" name="LoginCtrl.signinForm" role="form">
+            <div class="form-group">
+                <label>User name<sup>*</sup></label>
+                <input type="text" name="username" class="form-control" ng-model="LoginCtrl.user.username" ng-required='true'>
+            </div>
+            <div class="form-group">
+                <label>Password<sup>*</sup></label>
+                <input type="password" name="password" class="form-control" ng-model="LoginCtrl.user.password" ng-required='true'>
+            </div>
+            <p class="error-message text-danger" ng-show="LoginCtrl.errorInLogin" ng-bind="LoginCtrl.errorMsg"></p>
+            <button ladda-loading="LoginCtrl.login.loading" data-style="expand-right" ng-disabled="LoginCtrl.signinForm.$invalid" type="button" ng-click="LoginCtrl.SignIn($event)" class="btn btn-lg segoe-ui-light ladda-button btn-primary btn-block"><span class="ladda-label">Sign In</span></button>
+        </form>
+    </div>
+</div>
