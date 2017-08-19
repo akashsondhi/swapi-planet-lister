@@ -29,9 +29,7 @@ angular.module('myApp.login', ['ngRoute'])
         var password = _self.user.password;
         CommonProp.getUsersList(username).then(
             function onSuccess(userList) {
-                console.log(userList.data);
                 userObj = CommonProp.fetchUserData(userList.data.results, username)[0];
-                console.log(userObj);
                 login.loading = false;
                 _self.errorInLogin = true;
                 if (!userObj) {

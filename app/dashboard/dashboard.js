@@ -25,7 +25,6 @@ angular.module('myApp.dashboard', ['ngRoute'])
                 _self.searchInitiated = true;
                 CommonProp.fetchAllPlanets(newVal).then(function () {
                     _self.articles = CommonProp.getPlanetsData();
-                    console.log(_self.articles);
                     _self.articlesLoaded = true;
                 });    
         }
