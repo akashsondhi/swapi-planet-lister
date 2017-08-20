@@ -36,6 +36,7 @@ angular.module('myApp.login', ['ngRoute'])
                     _self.errorMsg = "Username not found.";
                 } else {
                     if (userObj.birth_year === password) {
+                        _self.errorInLogin = false;
                         CommonProp.setUser(userObj);
                         CommonProp.changeLocation('/dashboard');
 
